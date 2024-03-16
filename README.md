@@ -1,2 +1,2 @@
-# comparing-dialogs
-Custom dialogs vs. native HTML &lt;dialog>
+# Comparing Dialogs
+_Custom dialogs vs. the native HTML`<dialog>` element._
