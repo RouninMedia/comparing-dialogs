@@ -1,5 +1,5 @@
 # Comparing Modals
-_Custom modals vs. introducing a modal via the native HTML `<dialog>` element._
+_Using a custom modal vs. introducing a modal via the native HTML `<dialog>` element._
 
 I very much like that HTML in the 2020s has evolved its own `<dialog>` element, with native functionality built-in to enable the activation of modals.
 
