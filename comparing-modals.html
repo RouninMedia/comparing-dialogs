@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<title>Comparing Modals</title>
+<style>
+:root {
+  --remoteNoteThemeColor00: rgb(111, 0, 0);
+  --remoteNoteThemeColor01: rgb(63, 0, 0);
+  --modalHeight: 66vh;
+}
+
+.modal {
+  width: 66%;
+  height: var(--modalHeight);
+  padding: 0;
+  border: 3px solid var(--remoteNoteThemeColor01);
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+}
+
+div.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 72;
+  margin: calc((100vh - var(--modalHeight)) / 2) auto;
+  transform: translateY(100vh);
+  transition: transform 0.6s ease-out;
+}
+
+div.modal.\--show {
+  transform: translateY(0);
+}
+
+dialog.modal::backdrop {
+  background-color: rgba(95, 0, 0, 0.95);
+}
+
+.modalMain,
+.modalHeader,
+.modalFooter {
+  position: absolute;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.modalHeader,
+.modalFooter {  
+  height: 60px;
+  line-height: 60px;
+  color: rgb(255, 255, 255);
+  background-color: var(--remoteNoteThemeColor00);
+  text-align: center;
+}
+
+.modalHeader {
+  inset: 0 0 auto auto;
+}
+
+.modalHeading {
+  margin: 0;
+  padding: 0;
+}
+
+.modalMain {
+  inset: 60px 0;
+  padding: 12px;
+  color: rgb(127, 0, 0);
+  background-color: rgb(255, 255, 255);
+  font-family: monospace;
+  font-size: clamp(12px, 2vw, 20px);
+  line-height: clamp(18px, 3vw, 30px);
+  overflow: auto;
+}
+
+.modalFooter {
+  inset: auto auto 0 0;
+}
+
+.modalForm {
+  margin: 0;
+  padding: 0;  
+}
+
+.modalFormButton {
+  height: 40px;
+  margin: 11px 0 9px;
+  padding: 0 12px;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  font-weight: 700;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 2px solid var(--remoteNoteThemeColor05);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modalFormButton:hover {
+  background-color: var(--remoteNoteThemeColor03);
+}
+
+.veil {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background-color: rgba(95, 0, 0, 0.95);
+  opacity: 0;
+  transition: opacity 1.8s ease-in-out;
+}
+
+.veil.\--show {
+  opacity: 1;
+  transition: opacity 0.9s ease-out;
+}
+
+@media only screen and (width < 1600px) {
+
+  .modal {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-aspect-ratio: 1/1) {
+
+  .modal {
+    height: 92vh;
+  }
+
+  .modalMain {
+    padding-left: 3vw;
+  }
+}
+</style>
+</head>
+
+<body>
+<button type="button" class="showNativeModal">Show Native Modal</button>
+<button type="button" class="showCustomModal">Show Custom Modal</button>
+
+<dialog class="modal">
+  <header class="modalHeader"><h2 class="modalHeading">Native Modal</h2></header>  
+  <div class="modalMain"><p></p></div>
+  <footer class="modalFooter">
+    <form class="modalForm">
+      <button type="submit" class="modalFormButton" formmethod="dialog">Close this Native Modal</button>
+    </form>
+  </footer>
+</dialog>
+
+<div class="modal">
+  <header class="modalHeader"><h2 class="modalHeading">Custom Modal</h2></header>  
+  <div class="modalMain"><p></p></div>
+  <footer class="modalFooter"></footer>
+</div>
+
+<script>
+const veils = document.getElementsByClassName('veil');
+const nativeModal = document.querySelector('dialog.modal');
+const customModal = document.querySelector('div.modal');
+const buttonNativeModal = document.querySelector('.showNativeModal');
+const buttonCustomModal = document.querySelector('.showCustomModal');
+
+const showNativeModal = () => {
+
+  nativeModal.showModal();
+  const webDirectoryFolderNames = document.querySelectorAll('.webDirectoryFolderName');
+ 
+  const toggleFolder = (e) =>  {
+    const webDirectory = e.currentTarget.nextElementSibling;
+    webDirectory.style.setProperty('transition', `height ${(webDirectory.scrollHeight / 360).toFixed(2)}s linear`);
+    webDirectory.style.setProperty('height', webDirectory.scrollHeight + 'px');
+    webDirectory.classList.add('--transitioning');
+    webDirectory.classList.toggle('--open');
+    const timeout = ((webDirectory.scrollHeight / 360) * 1000);
+    setTimeout(() => webDirectory.style.removeProperty('height'), (webDirectory.classList.contains('--open')) ? timeout : 0);
+    setTimeout(() => webDirectory.classList.remove('--transitioning'), timeout);
+    setTimeout(() => webDirectory.removeAttribute('style'), timeout);
+  }
+  
+  webDirectoryFolderNames.forEach((folderName) => folderName.addEventListener('click', toggleFolder));
+}
+
+const hideCustomModal = () => {
+  const veil = veils[0];
+  customModal.classList.remove('\--show')
+  setTimeout(() => veil.classList.remove('\--show'), 300);
+  setTimeout(() => document.body.removeChild(veil), 2200);
+}
+
+const showCustomModal = () => {
+  const veil = document.createElement('div');
+  veil.classList.add('veil');
+  veil.addEventListener('click', hideCustomModal);
+  document.body.append(veil);
+  setTimeout(() => veil.classList.add('\--show'), 10);
+  setTimeout(() => customModal.classList.add('\--show'), 610);
+}
+
+
+buttonNativeModal.addEventListener('click', showNativeModal);
+buttonCustomModal.addEventListener('click', showCustomModal);
+</script>
+
+</body>
+</html> 
