@@ -35,17 +35,25 @@ div.modal.\--show {
 
 dialog.modal[open] {
   transform: translateY(0);
-  animation: enterDialogModal 2s ease-out;
+  animation: enterDialogModal 0.6s ease-out 0.5s;
 }
 
 @keyframes enterDialogModal {
-  25% { transform: translateY(100px); }
-  75% { transform: translateY(-100px); }
+  0% {transform: translateY(100vh);}
 }
 
 dialog.modal::backdrop {
   background-color: rgba(95, 0, 0, 0.95);
 }
+
+dialog.modal[open]::backdrop {
+  opacity: 1;
+  animation: fadeupDialogModalBackdrop 0.6s ease-out;
+}
+
+@keyframes fadeupDialogModalBackdrop {
+  0% {opacity: 0;}
+}  
 
 .modalMain,
 .modalHeader,
