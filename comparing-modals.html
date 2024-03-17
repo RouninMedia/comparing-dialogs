@@ -34,12 +34,12 @@ div.modal.\--show {
 }
 
 dialog.modal[open] {
-  transform: translateY(0);
+  transform: translateY(100vh);
   animation: enterDialogModal 0.6s ease-out 0.5s;
 }
 
 @keyframes enterDialogModal {
-  0% {transform: translateY(100vh);}
+  100% {transform: translateY(0) forwards;}
 }
 
 dialog.modal::backdrop {
@@ -47,12 +47,12 @@ dialog.modal::backdrop {
 }
 
 dialog.modal[open]::backdrop {
-  opacity: 1;
-  animation: fadeupDialogModalBackdrop 0.6s ease-out;
+  opacity: 0;
+  animation: fadeupDialogModalBackdrop 0.6s ease-out forwards;
 }
 
 @keyframes fadeupDialogModalBackdrop {
-  0% {opacity: 0;}
+  100% {opacity: 1;}
 }  
 
 .modalMain,
