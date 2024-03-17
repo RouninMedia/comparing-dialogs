@@ -28,11 +28,11 @@ ______
 
 ## Conclusions:
 
-As much as I would very much like to use the `<dialog>` element for all my modals, I will, for now, be sticking with a custom modal which allows for:
+As much as I would very much like to use the `<dialog>` element for all my modals, I will, for now, continue to stick with a custom modal which allows for:
 
- - animated fade-in and fade-out of the backdrop
- - click-interaction on the backdrop to close the modal
- - straightforward animated departure of the modal
+ - a backdrop with an animated fade-in and fade-out
+ - a backdrop which can listen and respond to a click-event (which then closes the modal)
+ - a straightforward-to-style-and-script animated departure of the modal
 
 ________
 
