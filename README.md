@@ -19,7 +19,7 @@ I like that `<dialog>` has its own `::backdrop` pseudo-element in CSS and that a
 
 But, at the element's current stage of development, I have two main misgivings with using the native `<dialog>` element to activate modals:
 
- 1. It's not as straightforward as you might anticipate to `transition` or `animate` the arrival and departure of the modal - though the arrival is easier to animate than the departure. But, after several experiments, it looks like it's not possible to `transition` or `animate` the fade-in or fade-out of the `::backdrop` pseudo-element at all. This leaves the immediate appearance and disappearance of either or both of the `<dialog>` and the `::backdrop` feeling a bit sudden and jarring.
+ 1. It's not as straightforward as you might anticipate to `transition` or `animate` the arrival and departure of the modal. (That said, the arrival is easier to animate than the departure.) Howwever, after several experiments, it looks like it's not possible to `transition` or `animate` the fade-in or fade-out of the `::backdrop` pseudo-element at all. This leaves the immediate appearance and disappearance of either or both of the `<dialog>` and the `::backdrop` feeling a bit sudden and jarring.
  2. It's not possible to `click` (or interact in any other way with) the `::backdrop` pseudo-element. Clicking anywhere outside the modal to close it has always felt to me like a natural UX and, because this isn't possible (at present) with the `<dialog>` `::backdrop`, a _Close Button_ must be included within the modal. I have no objecttion to a modal having its own explicit close button, but, to me, for this to be the only way to close the modal feels clunkier.
 
 
