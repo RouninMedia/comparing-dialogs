@@ -3,6 +3,8 @@ _Using a custom modal vs. introducing a modal via the native HTML `<dialog>` ele
 
 ________
 
+## Example:
+
 See a comparison of a modal built via the native HTML `<dialog>` element against a custom modal:
 
 - <a href="https://rouninmedia.github.io/comparing-modals/comparing-modals.html" target="_blank">Compare native and custom modals</a>
@@ -35,6 +37,8 @@ As much as I would very much like to use the `<dialog>` element for all my modal
  - a straightforward-to-style-and-script animated departure of the modal
 
 ________
+
+## Example:
 
 See a comparison of a modal built via the native HTML `<dialog>` element against a custom modal:
 
