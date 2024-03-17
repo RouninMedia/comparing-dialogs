@@ -33,6 +33,16 @@ div.modal.\--show {
   transform: translateY(0);
 }
 
+dialog.modal[open] {
+  transform: translateY(0);
+  animation: enterDialogModal 2s ease-out;
+}
+
+@keyframes enterDialogModal {
+  25% { transform: translateY(100px); }
+  75% { transform: translateY(-100px); }
+}
+
 dialog.modal::backdrop {
   background-color: rgba(95, 0, 0, 0.95);
 }
