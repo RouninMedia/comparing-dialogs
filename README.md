@@ -1,6 +1,14 @@
 # Comparing Modals
 _Using a custom modal vs. introducing a modal via the native HTML `<dialog>` element._
 
+________
+
+See a comparison of a modal built via the native HTML `<dialog>` element against a custom modal:
+
+- <a href="https://rouninmedia.github.io/filesystem-navigator-ui/comparing-modals.html" target="_blank">Compare native and custom modals</a>
+
+________
+
 In the 2020s HTML evolved its own `<dialog>` element, with native functionality built-in to enable the activation of **modals**.
 
 The `<dialog>` element has been available cross-browser since March 2022 - which means, as of the time of writing, it's been reliably available for two years now.
