@@ -48,12 +48,13 @@ dialog.modal::backdrop {
 }
 
 dialog.modal[open]::backdrop {
-  opacity: 1;
+  background-color: rgba(95, 0, 0, 0.95);
   animation: fadeupDialogModalBackdrop 0.6s ease-out;
 }
 
 @keyframes fadeupDialogModalBackdrop {
-  0% {opacity: 0;}
+  0% {background-color: rgba(95, 0, 0, 0);}
+  100% {background-color: rgba(95, 0, 0, 0.95);}
 }  
 
 .modalMain,
