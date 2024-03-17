@@ -8,7 +8,7 @@ See a comparison of a modal built via the native HTML `<dialog>` element against
 - <a href="https://rouninmedia.github.io/comparing-modals/comparing-modals.html" target="_blank">Compare native and custom modals</a>
 
 ________
-## Analysis
+## Analysis:
 
 In the 2020s HTML evolved its own `<dialog>` element, with native functionality built-in to enable the activation of **modals**.
 
@@ -26,7 +26,7 @@ But, at the element's current stage of development, I have two main misgivings w
 
 ______
 
-## Conclusions
+## Conclusions:
 
 As much as I would very much like to use the `<dialog>` element for all my modals, I will, for now, be sticking with a custom modal which allows for:
 
