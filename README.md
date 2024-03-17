@@ -5,7 +5,7 @@ ________
 
 See a comparison of a modal built via the native HTML `<dialog>` element against a custom modal:
 
-- <a href="https://rouninmedia.github.io/filesystem-navigator-ui/comparing-modals.html" target="_blank">Compare native and custom modals</a>
+- <a href="https://rouninmedia.github.io/comparing-modals/comparing-modals.html" target="_blank">Compare native and custom modals</a>
 
 ________
 
